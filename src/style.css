@@ -57,12 +57,6 @@ body {
   font-weight: 500;
 }
 
-/* Розрахунок відступів (margin-left) між елементами меню */
-.nav-list .nav-item:nth-child(1) {
-  /* APPLE */
-  margin-left: 419px; /* Обчислено: 509px (left Apple з Figma) - 90px (logo end) */
-}
-
 .nav-list .nav-item:nth-child(2) {
   /* SAMSUNG */
   margin-left: 20px;
