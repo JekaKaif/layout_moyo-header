@@ -1,3 +1,163 @@
-body {
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap';
+
+:root {
+  --blue-color: #00acdc;
+}
+
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+}
+
+.header {
+  position: relative;
+  width: 1200px;
+  height: 60px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 50px;
+}
+
+.logo-link {
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-link img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.logo-link:hover {
+  box-shadow: inset 0 0 0 2px var(--blue-color);
+}
+
+.nav {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 50px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  height: 15px;
+  line-height: 15px;
+  font-size: 12px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Розрахунок відступів (margin-left) між елементами меню */
+.nav-list .nav-item:nth-child(1) {
+  /* APPLE */
+  margin-left: 419px; /* Обчислено: 509px (left Apple з Figma) - 90px (logo end) */
+}
+
+.nav-list .nav-item:nth-child(2) {
+  /* SAMSUNG */
+  margin-left: 20px;
+}
+
+.nav-list .nav-item:nth-child(3) {
+  /* SMARTPHONES */
+  margin-left: 20px;
+}
+
+.nav-list .nav-item:nth-child(4) {
+  /* LAPTOPS & COMPUTERS */
+  margin-left: 20px;
+}
+
+.nav-list .nav-item:nth-child(5) {
+  /* GADGETS */
+  margin-left: 20px;
+}
+
+.nav-list .nav-item:nth-child(6) {
+  /* TABLETS */
+  margin-left: 20px;
+}
+
+.nav-list .nav-item:nth-child(7) {
+  /* PHOTO */
+  margin-left: 20px;
+}
+
+.nav-list .nav-item:nth-child(8) {
+  /* VIDEO */
+  margin-left: 20px;
+}
+
+.nav-link {
+  display: block;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #000;
+  position: relative; /* Необхідно для позиціонування обох ::before та ::after */
+}
+
+/* Стилі для лінії, що з'являється при наведенні (hover-лінія) */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 1px; /* Для hover-лінії, щоб вона була впритул до тексту */
+  height: 2px;
+  background-color: var(--blue-color);
+  width: 0;
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Колір для активного APPLE та LAPTOPS & COMPUTERS */
+.nav-list .nav-item:nth-child(1) .nav-link,
+.nav-list .nav-item:nth-child(4) .nav-link {
+  color: var(--blue-color);
+}
+
+/* ПОСТІЙНА АКТИВНА ЛІНІЯ ПІД APPLE (::before) */
+.nav-link.is-active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--blue-color);
+  border-radius: 8px;
+
+  /* Обчислене значення bottom, щоб низ лінії був на 60px від верху хедера */
+  bottom: -22.5px;
+}
+
+/* При наведенні на активний елемент, його ::after (hover) буде поверх ::before (active) */
+.nav-link.is-active:hover::after {
+  width: 100%; /* Залишаємо 100% ширини для hover-ефекту над активною лінією */
 }
